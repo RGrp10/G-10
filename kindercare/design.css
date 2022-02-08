@@ -1,0 +1,36 @@
+/*Sidebar menu*/
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+/*navigation menu links*/
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/*When mouse is moved over the links*/
+.sidenav a:hover {
+    color: black;
+}
+
+/*Main page content*/
+.main {
+    margin-left: 160px;
+    padding: 0px 10px;
+}
+
+/*For smaller screens where height is smaller than 450px*/
+@media screen and (max-height: 450px) {
+    .sidenav { padding-top: 15px}
+    .sidenav a {font-size: 18px}
+}
