@@ -42,6 +42,7 @@
             <a href="assignment.php" class="dashboard-nav-item">Assignments</a>
             <a href="results.php" class="dashboard-nav-item">Results</a>
             <a href="reports.php"class="dashboard-nav-item"><i class="fa fa-line-chart" aria-hidden="true"></i>Reports</a>
+            <a href="deactivate.php"class="dashboard-nav-item"><i class="fa fa-line-chart" aria-hidden="true"></i>Deactivate</a>
             
 
           <a
@@ -54,41 +55,37 @@
 
         <!-- content area -->
             <div class='container'>
-          
-              
-
-              <form action="assignmentPage.php" method="post">
+              <form action="" method="post">
 
               <div class="flex-container">
                     <div>
-                    <input type="text" name="assignNo" placeholder="assignID" class="form-control" style="width: 250px"> <br>
                     <h1>Enter assignment characters</h1>
                     <div class="col">
                         <div class="row">
-                        <input type="text" name="character1" placeholder="character1" class="form-control" style="width: 250px"> <br>
-                        <input type="text" name="character2" placeholder="character2" class="form-control" style="width: 250px"> <br>
+                        <input type="text" name="character1" placeholder="character1" class="form-control" name="fname" style="width: 250px"> <br>
+                        <input type="text" name="character2" placeholder="character2" class="form-control" name="fname" style="width: 250px"> <br>
                 
 
                         </div>
                     </div>
                     <div class="col">
                         <div class="row">
-                        <input type="text" name="character3" placeholder="character3" class="form-control" style="width: 250px">  <br>
-                  <input type="text" name="character4" placeholder="character4" class="form-control" style="width: 250px"> <br> 
+                        <input type="text" name="character3" placeholder="character3" class="form-control" name="fname" style="width: 250px">  <br>
+                  <input type="text" name="character4" placeholder="character4" class="form-control" name="fname" style="width: 250px"> <br> 
                             
                         </div>
                     </div>
                     <div class="col">
                         <div class="row">        
-                  <input type="text" name="character5" placeholder="character5" class="form-control" style="width: 250px"> <br>
-                  <input type="text" name="character6" placeholder="character6" class="form-control" style="width: 250px"> <br>    
+                  <input type="text" name="character5" placeholder="character5" class="form-control" name="fname" style="width: 250px"> <br>
+                  <input type="text" name="character6" placeholder="character6" class="form-control" name="fname" style="width: 250px"> <br>    
                         </div>
                     </div>
 
                     <div class="col">
                         <div class="row">
-                        <input type="text" name="character7" placeholder="character7" class="form-control" style="width: 250px"> <br>
-                  <input type="text" name="character8" placeholder="character8" class="form-control" style="width: 250px"> <br> 
+                        <input type="text" name="character7" placeholder="character7" class="form-control" name="fname" style="width: 250px"> <br>
+                  <input type="text" name="character8" placeholder="character8" class="form-control" name="fname" style="width: 250px"> <br> 
 
 
                             
@@ -100,20 +97,19 @@
                         
                   <h2>Set assignment duration</h2>
                   <label for="">Start Date</label>
-                  <input type="date" name="startdate" class="form-control" style="width: 250px">
+                  <input type="date" name="startdate" class="form-control" name="fname" style="width: 250px">
                   <label for="">Start Time</label>
-                  <input type="time" name="startTime" class="form-control" style="width: 250px">
+                  <input type="time" name="startTime" class="form-control" name="fname" style="width: 250px">
                   <label for="">End Time</label>
-                  <input type="time" name="endTime" class="form-control" style="width: 250px">
-                  <label for="">Close Date</label>
-                  <input type="date" name="closedate" class="form-control" style="width: 250px">
+                  <input type="time" name="endTime" class="form-control" name="fname" style="width: 250px">
+
 
                     </div>
 
                 </div>
 
                   
-                  <button type="submit" class="btn btn-primary" style="width: 250px" name="createAssignment">Create Assignment</button>
+                  <button type="submit" class="btn btn-primary"  name="fname" style="width: 250px" name="createAssignment">Create Assignment</button>
 
                   
               </form>
