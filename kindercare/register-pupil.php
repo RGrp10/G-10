@@ -34,6 +34,7 @@
             <a href="assignment.php" class="dashboard-nav-item">Assignments</a>
             <a href="results.php" class="dashboard-nav-item">Results</a>
             <a href="reports.php"class="dashboard-nav-item"><i class="fa fa-line-chart" aria-hidden="true"></i>Reports</a>
+            <a href="deactivate.php"class="dashboard-nav-item"><i class="fa fa-line-chart" aria-hidden="true"></i>Deactivate</a>
             
 
           <a
@@ -66,7 +67,7 @@
                     ?>
                 <form action="pupilRegistration.php" method="post">
   <div class="row mb-3">
-    <label for="fname" class="col-sm-2 col-form-label">First Name</label>
+    <label for="fname" class="col-sm-2 col-form-label">Firt Name</label>
     <div class="col-sm-10">
       <input type="fname" class="form-control" name="fname" style="width: 250px" required>
     </div>

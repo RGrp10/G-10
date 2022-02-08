@@ -5,20 +5,32 @@
 <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-			<form class="login" method="post" action="authourize.php">
-				<div class="login__field">
+
+<center style="margin-top: 200px;">
+<div class="container">
+<div>
+
+<form class="login" method="post" action="authourize.php">
+				<div class="login__field" >
 					<label for="">Username</label>
-					<input type="text" class="login__input" name="username">
+					<input type="text"  name="username" class="form-control" style="width: 250px">
 				</div>
 				<div class="login__field">
                     <label for="">Password</label>
-					<input type="password" class="login__input" name="password" >
+					<input type="password"  name="password" class="form-control" style="width: 250px">
 				</div>
-				<button class="button login__submit" type="submit" name="logButton">
+				<button  type="submit" name="logButton" class="btn btn-primary">
 					<span class="button__text">Log In</span>
 				</button>
                 <p>Don't have an account? <a href="register.php">Register!</a></p>				
 			</form>
+</div>
+		</div>
+</center>
+		
+			
+
+			
 
 
 <?php
