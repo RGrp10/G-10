@@ -6,13 +6,14 @@ session_start();
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $usercode = $_POST['usercode'];
-    $phoneNo = $_POST['phoneNumber'];  
+    $phoneNumber = $_POST['phoneNumber'];  
+    $username = $_SESSION['Username'];
     
     //connecting to the database 
     $conn = mysqli_connect('localhost','root','','kccd');
 
        
-       $sql = "INSERT INTO `pupil`(`Usercode`, `Firstname`, `Lastname`, `phoneNo`) VALUES ('$usercode','$fname','$lname','$phoneNo')";
+       $sql = "INSERT INTO pupils (fname,lname,usercode,phoneNumber,username) VALUES ('$fname','$lname','$usercode','$phoneNumber','$username')";
 
        if($conn->query($sql) === TRUE){
            $_SESSION['status'] = " registered successfully";
