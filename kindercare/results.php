@@ -88,7 +88,7 @@ session_start();
                             <td><?php echo $result['fname']?></td>
                             <td><?php echo $result['lname']?></td>
                             <td><?php echo $result['username']?></td>
-                            <td><a href="addcomment.php">Comment</a></td>
+                            <td><a class="btn btn-dark" href="addcomment.php" role="button" id="add">Comment</a></td>
                             </tr>
 
 
