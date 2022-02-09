@@ -52,9 +52,7 @@ session_start();
                         <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="view" id="view">
                                 <i class="fa fa-dot-circle-o"></i> View Results
                             </button></p>
-                        <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="pupil" id="pupil">
-                                <i class="fa fa-dot-circle-o"></i> View Pupil's Details
-                            </button></p>
+
                 <?php
                 if (isset($_POST['view'])){
                     ?>
@@ -66,6 +64,7 @@ session_start();
                             <th>Last Name</th>
 
                             <th>Username</th>
+                                 <th>Comment</th>
 
                         </tr>
                             </thead>
@@ -88,57 +87,37 @@ session_start();
                             <td><?php echo $result['fname']?></td>
                             <td><?php echo $result['lname']?></td>
                             <td><?php echo $result['username']?></td>
-                            <td><a class="btn btn-dark" href="addcomment.php" role="button" id="add">Comment</a></td>
+                            <td><?php if(!$result['comment'] == 0){
+                                 echo $result['comment'];}else{
+                                echo  '<input type="text" name="comment" placeholder="Add Comment" >';
+
+
+                           /// '<a class="btn btn-dark" href="addcomment.php" role="button" id="add" >Comment</a>'
+                                }?><p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="comment" id="comment">
+                                        <i class="fa fa-dot-circle-o"></i> Add Comments
+                                    </button></p></td>
                             </tr>
+                    <?php
+                        if(isset($_POST['comment'])){
+                            $comment = $_POST['comment'];
+                            $conn = mysqli_connect("localhost:3306", "root", "", "kccd");
+
+                            $sql = ("INSERT INTO pupil(comment) VALUES ('$comment')");
+
+                            if($conn->query($sql) === TRUE){
+                                header('Location: results.php?error=commentAddedSuccessfully');
+                                exit();
+                            }
+
+                        }
+
+                }} ?>
 
 
 
 
-            <?php  }  ?>
                     </table>
-                        <?php
-                }else if (isset($_POST['pupil'])){
-                        ?>
-                     "<table border='1'>
-                            <thead>
 
-                        <tr>
-
-                            <th>Usercode</th>
-
-                            <th>First Name</th>
-
-                            <th>Last Name</th>
-
-                            <th>Phone Number</th>
-
-                        </tr>
-                            </thead>
-
-                            <?php
-
-                                $conn = mysqli_connect("localhost:3306", "root", "", "kccd");
-
-                                $sql = ("SELECT pupil.*,teachers.* FROM pupil, teachers");
-
-                                //$rs = mysqli_query($conn, $sql);
-
-                                $rs = mysqli_query($conn, $sql);
-
-                            while($result = mysqli_fetch_array($rs))
-
-
-                        { ?>
-
-                        <tr>
-
-                            <tr>
-                                <td><?php echo $result['usercode']?></td>
-                                <td><?php echo $result['firstname']?></td>
-                                <td><?php echo $result['lastname']?></td>
-                            </tr>
-                       <?php }}?>
-                        </table>
 
 
                 </form>
