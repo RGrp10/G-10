@@ -101,7 +101,7 @@ if($conn == true){
                                         <td><?php echo $result['fname']?></td>
                                         <td><?php echo $result['lname']?></td>
                                         <td><?php echo $result['username']?></td>
-                                        <td><a href="addcomment.php">Comment</a></td>
+
                                     </tr>
 
 
