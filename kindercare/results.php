@@ -49,10 +49,10 @@ session_start();
                     <h1>pupil results</h1>
 
                     <form action="results.php" method="POST">
-                        <p style="text-align: center;"><button type="submit" class="btn btn-primary btn-sm" name="view" id="view">
+                        <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="view" id="view">
                                 <i class="fa fa-dot-circle-o"></i> View Results
                             </button></p>
-                        <p style="text-align: center;"><button type="submit" class="btn btn-primary btn-sm" name="pupil" id="pupil">
+                        <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="pupil" id="pupil">
                                 <i class="fa fa-dot-circle-o"></i> View Pupil's Details
                             </button></p>
                 <?php
