@@ -8,6 +8,15 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+.wrap{
+
+    margin: 20px;
+}
+.h8{
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #111b21;
+}
+
 
 html {
     font-family: sans-serif;
@@ -21,7 +30,6 @@ nav {
 }
 
 body {
-    margin: 0;
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -30,10 +38,50 @@ body {
     line-height: 1.5;
     color: #515151;
     text-align: left;
-    background-color: #111b21;
+    background-color: #e9edf4;
+    padding:30px;
+    border-radius:10px;
+    margin:0 auto;
+    height: 100%;
 
-    
+
 }
+.cont{
+    width: 960px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    height: 400px;
+    margin-top: 10px;
+    padding: 20px;
+}
+.data{
+    width: 800px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.data select{
+    width: 200px;
+    padding: 3px;
+    margin: 20px 0px;
+    float: left;
+    position: relative;
+    margin-right: 20px;
+}
+.submit{
+    margin-top: 18px;
+    width: 100px;
+    padding: 6px;
+    border: none;
+    outline: none;
+    background: #111b21;
+    font-weight: bold;
+    color: #FFFFFF;
+
+}
+
+
+
+
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
@@ -43,16 +91,21 @@ h1, h2, h3, h4, h5, h6 {
 p {
     margin-top: 0;
     margin-bottom: 1rem;
-}
+    color: #111b21;
 
+}
+b{
+    color: #111b21;
+    background-color: #FFFFFF;
+}
 a {
-    color: #3f84fc;
+    color: #FFFFFF;
     text-decoration: none;
-    background-color: transparent;
+    background-color: #111b21;
 }
 
 a:hover {
-    color: #0458eb;
+    color: #44e7dc;
     text-decoration: underline;
 }
 
@@ -143,7 +196,7 @@ h1, .h1 {
     top: 0;
     bottom: 0;
     overflow: auto;
-    background-color: #373193;
+    background-color: #20e1c4;
 }
 
 .dashboard-compact .dashboard-nav {
@@ -181,7 +234,7 @@ h1, .h1 {
 }
 
 .dashboard-nav {
-    background-color: #443ea2;
+    background-color: #111b21;
 }
 
 .dashboard-nav a {
