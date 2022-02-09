@@ -150,6 +150,7 @@ if($conn == true){
                                     <td><?php echo $result['usercode']?></td>
                                     <td><?php echo $result['firstname']?></td>
                                     <td><?php echo $result['lastname']?></td>
+                                    <td><?php echo $result['phone']?></td>
                                 </tr>
                             <?php }?>
                         </table>
