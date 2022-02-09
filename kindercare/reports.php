@@ -55,16 +55,16 @@ if($conn == true){
                 <div  class="card-body">
                     <h8>Reports</h8>
                     <form action="reports.php" method="POST">
-                        <p style="text-align: center;"><button type="submit" class="btn btn-primary btn-sm" name="view" id="view">
+                        <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="view" id="view">
                                 <i class="fa fa-dot-circle-o"></i> View Results
                             </button></p>
-                        <p style="text-align: center;"><button type="submit" class="btn btn-primary btn-sm" name="pupil" id="pupil">
+                        <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="pupil" id="pupil">
                                 <i class="fa fa-dot-circle-o"></i> View Pupils Details
                             </button></p>
-                        <p style="text-align: center;"><button type="submit" class="btn btn-primary btn-sm" name="assign" id="assign">
+                        <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="assign" id="assign">
                                 <i class="fa fa-dot-circle-o"></i> View Assignments
                             </button></p>
-                        <p style="text-align: center;"><button type="submit" class="btn btn-primary btn-sm" name="teacher" id="teacher">
+                        <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="teacher" id="teacher">
                                 <i class="fa fa-dot-circle-o"></i> View Teachers Details
                             </button></p>
                         <?php
