@@ -90,12 +90,13 @@ session_start();
                             <td><?php if(!$result['comment'] == 0){
                                  echo $result['comment'];}else{
                                 echo  '<input type="text" name="comment" placeholder="Add Comment" >';
-
-
-                           /// '<a class="btn btn-dark" href="addcomment.php" role="button" id="add" >Comment</a>'
-                                }?><p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="comment" id="comment">
+                                echo '<p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="comment" id="comment">
                                         <i class="fa fa-dot-circle-o"></i> Add Comments
-                                    </button></p></td>
+                                    </button></p>';
+
+
+                          
+                                }?></td>
                             </tr>
                     <?php
                         if(isset($_POST['comment'])){
