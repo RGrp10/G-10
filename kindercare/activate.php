@@ -15,6 +15,15 @@
 		// to 1 to indicate activation.
 		$sql="UPDATE `pupil` SET
 			`status`=false WHERE Usercode='$pupil_id'";
+		$query = "DELETE FROM request WHERE Usercode='$pupil_id'";
+		if(mysqli_query($con,$query)){
+			 // Go back to registered-page.php
+	          header('location: registered-page.php');
+	       }else{
+		echo "Error: " .$sql ."".mysqli_error($con);
+	       }	
+		
+		
 
 		// Execute the query
 	if(mysqli_query($con,$sql)){
