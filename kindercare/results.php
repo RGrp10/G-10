@@ -33,6 +33,7 @@ session_start();
                 <a href="assignment.php" class="dashboard-nav-item">Assignments</a>
                 <a href="results.php" class="dashboard-nav-item">Results</a>
                 <a href="reports.php"class="dashboard-nav-item"><i class="fa fa-line-chart" aria-hidden="true"></i>Reports</a>
+                <a href="deactivate.php"class="dashboard-nav-item"><i class="fa fa-line-chart" aria-hidden="true"></i>Activate</a>
 
                 <a
                     href="logout.php" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
@@ -40,39 +41,33 @@ session_start();
     </div>
     <div class='dashboard-app'>
         <header class='dashboard-toolbar'><h5>Welcome <?php echo $_SESSION['Username']; ?></h5></header>
-        <div class='dashboard-content'>
+        <div class='container'>
 
             <!-- content area -->
 
-            <div class="card" style="width: 50%">
-                <div  class="card-body">
+            <div>
+                <div>
                     <h1>pupil results</h1>
 
-                    <form action="results.php" method="POST">
-                        <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="view" id="view">
-                                <i class="fa fa-dot-circle-o"></i> View Results
-                            </button></p>
-
-                <?php
-                if (isset($_POST['view'])){
-                    ?>
-                        <table border="1"  >
+                   
+                        <table class="table"  >
                             <thead>
                              <tr>
-                            <th>First Name</th>
+                            <th>Usercode</th>
 
-                            <th>Last Name</th>
+                            <th>AssignmentID</th>
 
-                            <th>Username</th>
+                            <th>Score</th>
                                  <th>Comment</th>
 
                         </tr>
                             </thead>
                 <?php
 
-                $conn = mysqli_connect("localhost:3306", "root", "", "kccd");
+                $conn = mysqli_connect("localhost", "root", "", "kccd");
+                //$username = $_SESSION['Username'];
 
-                    $sql = ("SELECT pupil.*,teachers.* FROM pupil, teachers");
+                    $sql = ("SELECT Usercode, assignNo, score, comment FROM results");
 
                   //$rs = mysqli_query($conn, $sql);
 
@@ -84,35 +79,20 @@ session_start();
                 ?>
 
                            <tr>
-                            <td><?php echo $result['fname']?></td>
-                            <td><?php echo $result['lname']?></td>
-                            <td><?php echo $result['username']?></td>
-                            <td><?php if(!$result['comment'] == 0){
-                                 echo $result['comment'];}else{
-                                echo  '<input type="text" name="comment" placeholder="Add Comment" >';
-                                echo '<p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="comment" id="comment">
-                                        <i class="fa fa-dot-circle-o"></i> Add Comments
-                                    </button></p>';
+                            <td><?php echo $result['Usercode']?></td>
+                            <td><?php echo $result['assignNo']?></td>
+                            <td><?php echo $result['score']?></td>
+                            <td><?php echo $result['comment']?>
+                             
+                              <?php }?>
 
+                               
 
-                          
-                                }?></td>
+                              
+                               
+                               </td>
                             </tr>
-                    <?php
-                        if(isset($_POST['comment'])){
-                            $comment = $_POST['comment'];
-                            $conn = mysqli_connect("localhost:3306", "root", "", "kccd");
-
-                            $sql = ("INSERT INTO pupil(comment) VALUES ('$comment')");
-
-                            if($conn->query($sql) === TRUE){
-                                header('Location: results.php?error=commentAddedSuccessfully');
-                                exit();
-                            }
-
-                        }
-
-                }} ?>
+                               
 
 
 
@@ -121,7 +101,39 @@ session_start();
 
 
 
-                </form>
+                    <form action="results.php" method="post">
+                                      <td>Enter Usercode</td>
+                                       <input type="text" name="Usercode">
+                                       <td>Enter AssignmentID</td>
+                                       <input type="text" name="assignNo">
+                                       <td>Add Comment</td>
+                                       <input type="text" name="comment">
+
+                                       <button type="submit" class="btn btn-dark btn-sm" name="CommentUpdate" >
+                                           <i class="fa fa-dot-circle-o"></i>Add Comment
+                                       </button>
+                                   </form>
+                               <?php
+
+                               
+                               if (isset($_POST['CommentUpdate'])) {
+                                   $usercode = $_POST['Usercode'];
+                                   $comment = $_POST['comment'];
+                                   $assignNo = $_POST['assignNo'];
+
+                                   $conn = mysqli_connect("localhost:3306", "root", "", "kccd");
+
+                                   $sql = "UPDATE results  SET comment = '$comment' WHERE Usercode = '$usercode' && assignNo = '$assignNo'";
+                                  
+
+                                   if ($conn->query($sql) === TRUE) {
+                                    
+                                   
+                                
+                                }
+
+                                   } ?>
+
             </div>
             </div>
 
