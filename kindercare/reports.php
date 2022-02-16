@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$conn = mysqli_connect("localhost:3306", "root", "", "kccd");
+$conn = mysqli_connect("localhost", "root", "", "kccd");
 if($conn == true){
 
 }else{
@@ -40,6 +40,7 @@ if($conn == true){
                 <a href="assignment.php" class="dashboard-nav-item">Assignments</a>
                 <a href="results.php" class="dashboard-nav-item">Results</a>
                 <a href="reports.php"class="dashboard-nav-item"><i class="fa fa-line-chart" aria-hidden="true"></i>Reports</a>
+                <a href="deactivate.php"class="dashboard-nav-item"><i class="fa fa-line-chart" aria-hidden="true"></i>Activate</a>
 
 
                 <a
@@ -48,15 +49,15 @@ if($conn == true){
     </div>
     <div class='dashboard-app'>
         <header class='dashboard-toolbar'><h5>Welcome <?php echo $_SESSION['Username']; ?></h5></header>
-        <div class='dashboard-content'>
+        <div class='container'>
 
             <!-- content area -->
-            <div class="card" style="width: 50%">
-                <div  class="card-body">
-                    <h8>Reports</h8>
+            <div>
+                <div>
+                    <h1>Reports</h1>
                     <form action="reports.php" method="POST">
-                        <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="view" id="view">
-                                <i class="fa fa-dot-circle-o"></i> View Results
+                        <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="request" id="view">
+                                <i class="fa fa-dot-circle-o"></i> View Pending Requests
                             </button></p>
                         <p style="text-align: center;"><button type="submit" class="btn btn-dark btn-sm" name="pupil" id="pupil">
                                 <i class="fa fa-dot-circle-o"></i> View Pupils Details
@@ -68,10 +69,10 @@ if($conn == true){
                                 <i class="fa fa-dot-circle-o"></i> View Teachers Details
                             </button></p>
                         <?php
-                        if (isset($_POST['view'])){
-                            echo "Teachers Details";
+                        if (isset($_POST['teacher'])){
+                            echo '<h4>Teachers Details</h4>';
                             ?>
-                            <table border="1"  >
+                            <table class="table"  >
                                 <thead>
                                 <tr>
                                     <th>First Name</th>
@@ -84,9 +85,9 @@ if($conn == true){
                                 </thead>
                                 <?php
 
-                                $conn = mysqli_connect("localhost:3306", "root", "", "kccd");
+                                $conn = mysqli_connect("localhost", "root", "", "kccd");
 
-                                $sql = ("SELECT pupil.*,teachers.* FROM pupil, teachers");
+                                $sql = ("SELECT fname, lname, username FROM teachers");
 
                                 //$rs = mysqli_query($conn, $sql);
 
@@ -110,10 +111,50 @@ if($conn == true){
                                 <?php  }  ?>
                             </table>
                             <?php
-                        }else if (isset($_POST['pupil'])){
-                            echo "Pupils Details";
+                        }else if (isset($_POST['request'])){
+                            echo '<h4>Pending requests</h4>';
                         ?>
-                        "<table border='1'>
+                        <table class="table">
+                            <thead>
+
+                            <tr>
+
+                                <th>Usercode</th>
+
+                                <th>First Name</th>
+
+                            </tr>
+                            </thead>
+
+                            <?php
+
+                            $conn = mysqli_connect("localhost", "root", "", "kccd");
+
+                            $sql = ("SELECT Usercode, Firstname FROM request");
+
+                            //$rs = mysqli_query($conn, $sql);
+
+                            $rs = mysqli_query($conn, $sql);
+
+                            while($result = mysqli_fetch_array($rs))
+
+
+                            { ?>
+
+                                <tr>
+
+                                <tr>
+                                    <td><?php echo $result['Usercode']?></td>
+                                    <td><?php echo $result['Firstname']?></td>
+                                    
+                                </tr>
+                            <?php }?>
+                        </table>
+                        <?php
+                        }else if (isset($_POST['pupil'])){
+                            echo '<h4>Pupils Details</h4>';
+                        ?>
+                        <table class="table">
                             <thead>
 
                             <tr>
@@ -131,9 +172,9 @@ if($conn == true){
 
                             <?php
 
-                            $conn = mysqli_connect("localhost:3306", "root", "", "kccd");
+                            $conn = mysqli_connect("localhost", "root", "", "kccd");
 
-                            $sql = ("SELECT pupil.*,teachers.* FROM pupil, teachers");
+                            $sql = ("SELECT Usercode, Firstname, Lastname, phoneNo FROM pupil");
 
                             //$rs = mysqli_query($conn, $sql);
 
@@ -147,18 +188,18 @@ if($conn == true){
                                 <tr>
 
                                 <tr>
-                                    <td><?php echo $result['usercode']?></td>
-                                    <td><?php echo $result['firstname']?></td>
-                                    <td><?php echo $result['lastname']?></td>
-                                    <td><?php echo $result['phone']?></td>
+                                    <td><?php echo $result['Usercode']?></td>
+                                    <td><?php echo $result['Firstname']?></td>
+                                    <td><?php echo $result['Lastname']?></td>
+                                    <td><?php echo $result['phoneNo']?></td>
                                 </tr>
                             <?php }?>
                         </table>
                         <?php
                         }else if (isset($_POST['assign'])){
-                            echo "Assignments";
+                            echo '<h4>Assignments</h4>';
                         ?>
-                        "<table border='1'>
+                        <table class="table">
                             <thead>
 
                             <tr>
@@ -175,17 +216,17 @@ if($conn == true){
                                 <th>Character 8</th>
 
                                 <th>Start Date</th>
-                                <th>Stop Date</th>
-
                                 <th>Start Time</th>
+
                                 <th>Stop Time</th>
+                                <th>Stop Date</th>
 
                             </tr>
                             </thead>
 
                             <?php
 
-                            $conn = mysqli_connect("localhost:3306", "root", "", "kccd");
+                            $conn = mysqli_connect("localhost", "root", "", "kccd");
 
                             $sql = ("SELECT * FROM assignment");
 
@@ -211,9 +252,9 @@ if($conn == true){
                                 <td><?php echo $result['char7']?></td>
                                 <td><?php echo $result['char8']?></td>
                                     <td><?php echo $result['startdate']?></td>
-                                    <td><?php echo $result['stopdate']?></td>
-                                <td><?php echo $result['startTime']?></td>
-                                <td><?php echo $result['stopTime']?></td>
+                                    <td><?php echo $result['startTime']?></td>
+                                <td><?php echo $result['endTime']?></td>
+                                <td><?php echo $result['closedate']?></td>
                                 </tr>
                             <?php }}?>
                         </table>
